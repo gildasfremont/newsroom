@@ -1,0 +1,10 @@
+<% if @topic.errors.any? %>
+  $('.topic_question').html("<%= j render 'topics/form', topic: @topic %>");
+<% else %>
+  var new_topic = $("<%= j render 'topics/topic', topic: @topic %>").hide();
+
+  $('.topic-list').prepend(new_topic);
+
+  new_topic.slideDown();
+
+<% end %>

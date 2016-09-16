@@ -18,9 +18,10 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 
 group :development, :test do
+  gem 'faker'
   gem 'binding_of_caller'
   gem 'better_errors'
-  
+
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
