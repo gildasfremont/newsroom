@@ -14,10 +14,13 @@ class TopicsController < ApplicationController
     p params[:topic][:question]
     @topic = Topic.new(user: current_user, question: params[:topic][:question])
     if @topic.save
-      respond_to do |format|
-        # format.html (redirect_to topics_path)
-        format.js
-      end
+      # respond_to do |format|
+      #   # format.html (redirect_to topics_path)
+      #   format.js
+      # end
+      ActionCable.server.broadcast 'topics',
+        topic: @topic.question
+      head :ok
     else
       respond_to do |format|
         format.html (render 'topics/index')
