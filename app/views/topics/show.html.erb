@@ -1,0 +1,11 @@
+
+<%= link_to "< Back to questions", topics_path %>
+<h2><%= @topic.question %></h2>
+
+<% @topic.posts.each do |post| %>
+  <div class="post">
+    <%= post.title %>
+    <%= link_to post.url, post.url %>
+    <%= " " + post.comments.count.to_s %>
+  </div>
+<% end %>

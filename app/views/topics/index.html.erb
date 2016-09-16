@@ -1,0 +1,7 @@
+<%= render 'form', topic: @topic %>
+
+<div class="topic-list">
+  <% @topics.each do |topic| %>
+    <%= render 'topic', topic: topic %>
+  <% end %>
+</div>
